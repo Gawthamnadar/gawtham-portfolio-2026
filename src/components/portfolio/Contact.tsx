@@ -18,7 +18,7 @@ const Contact = () => {
   const handleDownload = async () => {
     setIsDownloading(true);
     try {
-      const candidates = ["/Resume_2026.pdf", "/resume.pdf"];
+      const candidates = ["/Resume.pdf", "/resume.pdf"];
       let res: Response | undefined;
       for (const path of candidates) {
         try {
@@ -55,7 +55,7 @@ const Contact = () => {
       toast({
         title: "Resume not found",
         description:
-          "Place your PDF at public/Resume_2026.pdf or public/resume.pdf",
+          "Place your PDF at public/Resume.pdf or public/resume.pdf",
       });
     } catch (err) {
       toast({

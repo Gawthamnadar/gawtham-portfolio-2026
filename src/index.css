@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Professional Portfolio Design System */
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    /* Deep Navy - Professional & Trustworthy */
+    --primary: 222 47% 11%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Light gray surface */
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    /* Muted surfaces */
+    --muted: 220 14% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    /* Gold accent - Premium feel */
+    --accent: 38 92% 50%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 222 47% 11%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --navy-50: 220 33% 98%;
+    --navy-100: 220 27% 94%;
+    --navy-200: 220 21% 86%;
+    --navy-800: 222 47% 11%;
+    --navy-900: 222 55% 7%;
+    
+    --gold-400: 38 92% 50%;
+    --gold-500: 38 92% 45%;
+    --gold-600: 38 92% 40%;
+
+    /* Sidebar */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 222 47% 11%;
+  }
+
+  .dark {
+    --background: 222 55% 7%;
+    --foreground: 220 27% 94%;
+
+    --card: 222 47% 11%;
+    --card-foreground: 220 27% 94%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 220 27% 94%;
+
+    --primary: 38 92% 50%;
+    --primary-foreground: 222 47% 11%;
+
+    --secondary: 222 40% 15%;
+    --secondary-foreground: 220 27% 94%;
+
+    --muted: 222 40% 15%;
+    --muted-foreground: 220 14% 60%;
+
+    --accent: 38 92% 50%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 222 40% 18%;
+    --input: 222 40% 18%;
+    --ring: 38 92% 50%;
+
+    --sidebar-background: 222 55% 7%;
+    --sidebar-foreground: 220 27% 94%;
+    --sidebar-primary: 38 92% 50%;
+    --sidebar-primary-foreground: 222 47% 11%;
+    --sidebar-accent: 222 40% 15%;
+    --sidebar-accent-foreground: 220 27% 94%;
+    --sidebar-border: 222 40% 18%;
+    --sidebar-ring: 38 92% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+  }
+
+  .section-padding {
+    @apply py-20 md:py-28 lg:py-32;
+  }
+
+  .container-tight {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply relative text-muted-foreground hover:text-foreground transition-colors duration-200;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-300;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  .skill-badge {
+    @apply inline-flex items-center px-4 py-2 rounded-full text-sm font-medium 
+           bg-secondary text-foreground border border-border
+           hover:border-accent hover:bg-accent/10 transition-all duration-300;
+  }
+
+  .project-card {
+    @apply relative bg-card rounded-2xl border border-border p-6
+           hover:border-accent/50 hover:shadow-xl hover:shadow-accent/5
+           transition-all duration-500;
+  }
+
+  .experience-card {
+    @apply relative pl-8 pb-12 border-l-2 border-border
+           hover:border-accent transition-colors duration-300;
+  }
+
+  .experience-card::before {
+    content: '';
+    @apply absolute left-0 top-0 w-4 h-4 -translate-x-[9px] rounded-full
+           bg-background border-2 border-border
+           transition-all duration-300;
+  }
+
+  .experience-card:hover::before {
+    @apply border-accent bg-accent/20;
+  }
+}
